@@ -1,0 +1,22 @@
+#
+# .service file for hoerkoeffer service
+# 
+# Place this file to /etc/systemd/system/hoerkoffer.service
+# - to start: sudo systemctl start hoerkoffer
+# - to show info: sudo systemctl status hoerkoffer.service
+#
+[Unit]
+Description=Hoerkoffer Server
+After=sound.target
+#DefaultDependencies=false
+
+[Service]
+Restart=always
+RestartSec=1
+User=root
+Group=root
+ExecStart=/home/pi/pythoncode/hoerkoffer.py
+
+[Install]
+WantedBy=multi-user.target
+
